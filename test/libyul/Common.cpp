@@ -66,7 +66,8 @@ pair<shared_ptr<Block>, shared_ptr<yul::AsmAnalysisInfo>> yul::test::parse(strin
 {
 	AssemblyStack stack(
 		dev::test::Options::get().evmVersion(),
-		_yul ? AssemblyStack::Language::Yul : AssemblyStack::Language::StrictAssembly
+		_yul ? AssemblyStack::Language::Yul : AssemblyStack::Language::StrictAssembly,
+		dev::test::Options::get().optimize ? OptimiserSettings::standard() : OptimiserSettings::minimal()
 	);
 	if (!stack.parseAndAnalyze("", _source) || !stack.errors().empty())
 		BOOST_FAIL("Invalid source.");
