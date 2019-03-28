@@ -5,6 +5,7 @@ Language Features:
 
 Compiler Features:
  * Yul: Adds break and continue keywords to for-loop syntax.
+ * Yul Optimizer: Detects and removes dead code.
 
 
 Bugfixes:
